@@ -111,10 +111,14 @@ export function characterCost(profile: CharacterProfile): number {
 	);
 }
 
-/** Total points cost of a squad: the shared profile's cost, multiplied by the
- *  number of members. */
+/** Total points cost of a squad: the shared profile's cost plus each loadout's
+ *  weapons, multiplied by that loadout's member count. */
 export function squadCost(squad: Squad): number {
-	return characterCost(squad.profile) * squad.memberCount;
+	const baseCost = characterCost(squad.profile);
+	return squad.loadouts.reduce(
+		(sum, loadout) => sum + (baseCost + equipmentCost(loadout.weapons)) * loadout.memberCount,
+		0
+	);
 }
 
 /** Total points cost of an entire warband. */

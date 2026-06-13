@@ -143,31 +143,57 @@ describe('characterCost', () => {
 });
 
 describe('squadCost', () => {
-	it('multiplies the profile cost by the member count (rulebook example: 250 x 4 = 1000)', () => {
+	it('multiplies the profile cost plus standard loadout weapons by the member count (rulebook example: 250 x 4 = 1000)', () => {
 		const profile = createCharacterProfile('Trooper');
-		// Build a profile that costs exactly 250 points.
-		profile.skills = { A: 1, F: 11, S: 1, AW: 1, P: 1 }; // not valid per rules (max 10) but
-		// keep the test focused purely on the multiplication; use equipment instead to hit 250.
 		profile.skills = { A: 1, F: 1, S: 1, AW: 1, P: 1 };
-		profile.equipment = [
-			{
-				kind: 'customWeapon',
-				id: '1',
-				name: 'Test weapon',
-				type: 'ranged',
-				range: 100,
-				damage: '1D6+134',
-				maxPotentialDamage: 140,
-				oneHanded: false,
-				specialRuleIds: [],
-				keywords: []
-			}
-		];
 
-		const squad: Squad = { id: 's1', name: 'Squad', profile, memberCount: 4 };
+		const squad: Squad = {
+			id: 's1',
+			name: 'Squad',
+			profile,
+			memberCount: 4,
+			loadouts: [
+				{
+					id: 'l1',
+					memberCount: 4,
+					weapons: [
+						{
+							kind: 'customWeapon',
+							id: '1',
+							name: 'Test weapon',
+							type: 'ranged',
+							range: 100,
+							damage: '1D6+134',
+							maxPotentialDamage: 140,
+							oneHanded: false,
+							specialRuleIds: [],
+							keywords: []
+						}
+					]
+				}
+			]
+		};
 
-		expect(characterCost(profile)).toBe(250);
+		expect(characterCost(profile)).toBe(10);
 		expect(squadCost(squad)).toBe(1000);
+	});
+
+	it('costs each loadout separately (rulebook example: squad of 8, 6 standard + 2 variant)', () => {
+		const profile = createCharacterProfile('Trooper');
+
+		const squad: Squad = {
+			id: 's1',
+			name: 'Squad',
+			profile,
+			memberCount: 8,
+			loadouts: [
+				{ id: 'standard', memberCount: 6, weapons: [{ kind: 'weapon', id: 'w1', ref: 'dagger' }] },
+				{ id: 'variant', memberCount: 2, weapons: [{ kind: 'weapon', id: 'w2', ref: 'laser-pistol' }] }
+			]
+		};
+
+		// dagger costs 5, laser-pistol costs 25; profile costs 10
+		expect(squadCost(squad)).toBe((10 + 5) * 6 + (10 + 25) * 2);
 	});
 });
 
@@ -175,7 +201,13 @@ describe('warbandTotal', () => {
 	it('sums character and squad costs', () => {
 		const character = { ...createCharacterProfile('Solo'), id: 'c1' };
 		const squadProfile = createCharacterProfile('Grunt');
-		const squad: Squad = { id: 's1', name: 'Grunts', profile: squadProfile, memberCount: 3 };
+		const squad: Squad = {
+			id: 's1',
+			name: 'Grunts',
+			profile: squadProfile,
+			memberCount: 3,
+			loadouts: [{ id: 'l1', memberCount: 3, weapons: [] }]
+		};
 
 		const warband: Warband = {
 			name: 'Test warband',

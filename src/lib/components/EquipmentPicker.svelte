@@ -5,11 +5,15 @@
 	import { equipmentItemCost } from '$lib/model/points';
 	import { generateId } from '$lib/model/id';
 	import type { EquipmentItem } from '$lib/model/types';
+	import { untrack } from 'svelte';
 	import CustomWeaponBuilder from './CustomWeaponBuilder.svelte';
 
-	let { equipment = $bindable([]) }: { equipment: EquipmentItem[] } = $props();
-
 	type Category = 'weapon' | 'armour' | 'item';
+
+	let {
+		equipment = $bindable([]),
+		categories = ['weapon', 'armour', 'item']
+	}: { equipment: EquipmentItem[]; categories?: Category[] } = $props();
 
 	const catalogues: Record<Category, { id: string; name: string; cost: number }[]> = {
 		weapon: weapons,
@@ -17,8 +21,8 @@
 		item: miscItems
 	};
 
-	let category: Category = $state('weapon');
-	let selectedRef = $state(weapons[0].id);
+	let category: Category = $state(untrack(() => categories[0]));
+	let selectedRef = $state(untrack(() => catalogues[categories[0]][0]?.id ?? ''));
 	let showCustomWeapon = $state(false);
 
 	$effect(() => {
@@ -67,20 +71,24 @@
 	</ul>
 
 	<div class="add-row">
-		<select bind:value={category}>
-			<option value="weapon">Weapon</option>
-			<option value="armour">Armour</option>
-			<option value="item">Item</option>
-		</select>
+		{#if categories.length > 1}
+			<select bind:value={category}>
+				{#if categories.includes('weapon')}<option value="weapon">Weapon</option>{/if}
+				{#if categories.includes('armour')}<option value="armour">Armour</option>{/if}
+				{#if categories.includes('item')}<option value="item">Item</option>{/if}
+			</select>
+		{/if}
 		<select bind:value={selectedRef}>
 			{#each catalogues[category] as entry (entry.id)}
 				<option value={entry.id}>{entry.name} ({entry.cost})</option>
 			{/each}
 		</select>
 		<button type="button" onclick={addFromCatalogue}>Add</button>
-		<button type="button" onclick={() => (showCustomWeapon = !showCustomWeapon)}>
-			{showCustomWeapon ? 'Cancel custom weapon' : 'Create custom weapon'}
-		</button>
+		{#if categories.includes('weapon')}
+			<button type="button" onclick={() => (showCustomWeapon = !showCustomWeapon)}>
+				{showCustomWeapon ? 'Cancel custom weapon' : 'Create custom weapon'}
+			</button>
+		{/if}
 	</div>
 
 	{#if showCustomWeapon}

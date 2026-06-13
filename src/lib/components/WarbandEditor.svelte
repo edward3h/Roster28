@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { characterCost, squadCost, warbandTotal } from '$lib/model/points';
 	import { exportWarband, importWarband } from '$lib/model/storage';
-	import { createCharacterProfile } from '$lib/model/types';
+	import { createCharacterProfile, createSquad } from '$lib/model/types';
 	import { generateId } from '$lib/model/id';
 	import type { Warband, WarbandEntry } from '$lib/model/types';
 	import CharacterEditor from './CharacterEditor.svelte';
@@ -28,18 +28,7 @@
 	}
 
 	function addSquad() {
-		warband.entries = [
-			...warband.entries,
-			{
-				type: 'squad',
-				data: {
-					id: generateId(),
-					name: 'New squad',
-					profile: createCharacterProfile('Squad member'),
-					memberCount: 3
-				}
-			}
-		];
+		warband.entries = [...warband.entries, { type: 'squad', data: createSquad('New squad') }];
 	}
 
 	function removeEntry(index: number) {
