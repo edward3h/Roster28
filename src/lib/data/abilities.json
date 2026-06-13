@@ -1,0 +1,62 @@
+[
+	{
+		"id": "aimed-shot",
+		"name": "Aimed shot",
+		"cost": 10,
+		"effect": "This character may use an action to aim their weapon at an enemies' weak spot. Their weapon does an additional +1D8 damage in their next attack this turn."
+	},
+	{
+		"id": "drain",
+		"name": "Drain",
+		"cost": 25,
+		"effect": "This character may remove a single hit-points from any character within 5cm and add it to their own hit-points."
+	},
+	{
+		"id": "heal",
+		"name": "Heal",
+		"cost": 20,
+		"effect": "This character may restore 1D6 hit-points to any other character in base contact."
+	},
+	{
+		"id": "haggle",
+		"name": "Haggle",
+		"cost": 30,
+		"effect": "This character may haggle the price of items in off-table games. Roll 1D6. On a 1, 2 or 3 the price is reduced by 1D4 credits. On a 4, 5 or 6 the price is reduced by 1D10. The price can never go below 1 credit."
+	},
+	{
+		"id": "inspire",
+		"name": "Inspire",
+		"cost": 25,
+		"effect": "A chosen friendly character within line of sight receives +1D6 to their skills for the remainder of the turn."
+	},
+	{
+		"id": "loot",
+		"name": "Loot",
+		"cost": 30,
+		"effect": "Once per game, after this character slays an enemy in combat, they may take one piece of equipment from the defeated character and add it to their own. This equipment is permanently removed from the slain character's equipment inventory."
+	},
+	{
+		"id": "persuade",
+		"name": "Persuade",
+		"cost": 25,
+		"effect": "When in combat, make a (P) roll. If successful, both characters break from combat. Neither character can attack the other for the remainder of the turn."
+	},
+	{
+		"id": "repair",
+		"name": "Repair",
+		"cost": 15,
+		"effect": "When in base contact with a vehicle this character may restore 1D8 hit-points to any section, regardless of facing."
+	},
+	{
+		"id": "sabotage",
+		"name": "Sabotage",
+		"cost": 20,
+		"effect": "When this character is within 5cm of an enemy vehicle they may choose a section of that vehicle from a random facing. That section is treated as destroyed for 1D6 turns, after which it returns to normal. To determine which facing the section must be chosen from, roll 1D4. 1 = front, 2 = right, 3 = rear and 4 = left."
+	},
+	{
+		"id": "throw",
+		"name": "Throw",
+		"cost": 15,
+		"effect": "This character can throw any character in base contact 1D12cm in a straight line, in a direction of their choosing. Characters thrown off ledges must take fall damage."
+	}
+]

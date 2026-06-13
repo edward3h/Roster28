@@ -1,0 +1,58 @@
+[
+	{
+		"id": "no-armour",
+		"name": "No armour",
+		"defence": "1D4-1",
+		"details": "",
+		"cost": 0
+	},
+	{
+		"id": "light-armour",
+		"name": "Light armour",
+		"defence": "1D6",
+		"details": "Provides no protection against weapons with the Energy keyword.",
+		"cost": 10
+	},
+	{
+		"id": "ballistic-plate",
+		"name": "Ballistic plate",
+		"defence": "1D8+4",
+		"details": "",
+		"cost": 15
+	},
+	{
+		"id": "energy-shield",
+		"name": "Energy shield",
+		"defence": "1D12+6",
+		"details": "This armour may only provide protection against damage caused by weapons with the Energy keyword.",
+		"cost": 30
+	},
+	{
+		"id": "psy-hood",
+		"name": "Psy-hood",
+		"defence": "",
+		"details": "The wearer of this armour cannot be targeted by arcane abilities or weapons with the Psychic keyword.",
+		"cost": 50
+	},
+	{
+		"id": "heavy-armour",
+		"name": "Heavy armour",
+		"defence": "1D12",
+		"details": "The wearer suffers -1 to their agility during movement actions.",
+		"cost": 50
+	},
+	{
+		"id": "living-armour",
+		"name": "Living armour",
+		"defence": "",
+		"details": "This armour is a living being. At the start of each game roll 1D20. The armour now has that many hit-points. When the wearer is hit, remove the damage from the armour. If the armour loses all of its hit-points, it is destroyed for ever and offers no more protection.",
+		"cost": 30
+	},
+	{
+		"id": "power-armour",
+		"name": "Power armour",
+		"defence": "2D10+5",
+		"details": "The wearer of this armour gains +1 to their agility. The wearer is immune to the effects of the Poisonous and Cumulative weapon special rules. If struck by weapons with the keyword Energy, roll 1D10. On a roll of 10 the armour's internal systems have been damaged and must be rebooted - the wearer must spend a turn repairing the armour, during which they may not make any actions.",
+		"cost": 100
+	}
+]

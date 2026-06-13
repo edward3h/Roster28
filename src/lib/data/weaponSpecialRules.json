@@ -1,0 +1,62 @@
+[
+	{
+		"id": "armour-piercing",
+		"name": "Armour piercing",
+		"cost": 30,
+		"effect": "Characters struck by this weapon may not make any armour rolls."
+	},
+	{
+		"id": "cumulative",
+		"name": "Cumulative",
+		"cost": 20,
+		"effect": "For every successive turn in which a character is struck by this weapon, the weapon does an additional +4 damage."
+	},
+	{
+		"id": "explosive",
+		"name": "Explosive",
+		"cost": 20,
+		"effect": "Any character or vehicle within 5cm of a character hit by this weapon suffers 1D6 damage."
+	},
+	{
+		"id": "heavy",
+		"name": "Heavy",
+		"cost": -10,
+		"effect": "Characters wielding this weapon suffer -1 to their agility."
+	},
+	{
+		"id": "integral",
+		"name": "Integral",
+		"cost": -10,
+		"effect": "This weapon cannot be removed during a game."
+	},
+	{
+		"id": "indirect",
+		"name": "Indirect",
+		"cost": 30,
+		"effect": "When firing this weapon, first estimate the distance between the shooter and the target. On a straight line from the shooter to the target, place a marker at this estimated distance. Anything within 10cm of the area is hit by the weapon. This weapon does not need line of sight to select a target."
+	},
+	{
+		"id": "poisonous",
+		"name": "Poisonous",
+		"cost": 40,
+		"effect": "Any character hit by this weapon takes 1D4 damage at the start of every turn. This damage cannot be stopped with armour."
+	},
+	{
+		"id": "psychic",
+		"name": "Psychic",
+		"cost": 25,
+		"effect": "The wielder of this weapon may choose to use their (P) score when making shoot/fight actions with it, instead of their (S) or (F) skill."
+	},
+	{
+		"id": "reload",
+		"name": "Reload",
+		"cost": -15,
+		"effect": "After each attack made with this weapon, the wielder must use an action to reload it. This action uses 1 piece of ammo from the wielder's equipment."
+	},
+	{
+		"id": "volatile",
+		"name": "Volatile",
+		"cost": -10,
+		"effect": "If the user rolls a 10 when attempting a skill roll with this weapon then the weapon deals damage to the wielder rather than their target."
+	}
+]

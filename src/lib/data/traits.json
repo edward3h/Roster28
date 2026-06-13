@@ -1,0 +1,284 @@
+[
+	{
+		"id": "ammo-smith",
+		"name": "Ammo smith",
+		"cost": 15,
+		"effect": "After each game this character may craft 1 piece of ammo for any weapon of their choice. This is automatically added to their equipment."
+	},
+	{
+		"id": "animal",
+		"name": "Animal",
+		"cost": -20,
+		"effect": "This character may not use any abilities or perform shoot actions. This character suffers -1(P) during break tests."
+	},
+	{
+		"id": "armless",
+		"name": "Armless",
+		"cost": -20,
+		"effect": "This character is missing an arm. They may only wield a single 1 handed weapon or use a single item at any time."
+	},
+	{
+		"id": "blessed",
+		"name": "Blessed",
+		"cost": 50,
+		"effect": "This character may roll 2D10 for all skill rolls and keep the lowest score."
+	},
+	{
+		"id": "big",
+		"name": "Big",
+		"cost": 8,
+		"effect": "This character gains an additional +1(F) when charging. This character suffers -3cm speed."
+	},
+	{
+		"id": "bulwark",
+		"name": "Bulwark",
+		"cost": 10,
+		"effect": "Enemies do not receive the standard +1D4(F) when charging this character."
+	},
+	{
+		"id": "brawler",
+		"name": "Brawler",
+		"cost": 9,
+		"effect": "This character's fists do an additional 1D6 damage."
+	},
+	{
+		"id": "brave",
+		"name": "Brave",
+		"cost": 15,
+		"effect": "This character may reroll 1 failed break test per turn."
+	},
+	{
+		"id": "barbaric",
+		"name": "Barbaric",
+		"cost": -10,
+		"effect": "This character is immune to the Persuade ability. They may not wield any weapons or wear any armour with the keyword Complex."
+	},
+	{
+		"id": "cursed",
+		"name": "Cursed",
+		"cost": -50,
+		"effect": "This character must roll 2D10 for all skill rolls and keep the highest score."
+	},
+	{
+		"id": "coward",
+		"name": "Coward",
+		"cost": -15,
+		"effect": "This character must make a break test when charged and may not charge any other character."
+	},
+	{
+		"id": "climber",
+		"name": "Climber",
+		"cost": 5,
+		"effect": "This character gains +2(A) when attempting to climb any vertical surface."
+	},
+	{
+		"id": "death-proof",
+		"name": "Death-proof",
+		"cost": 25,
+		"effect": "When rolling on the injuries table this character may treat Dead as Complete recovery."
+	},
+	{
+		"id": "extra-limbs",
+		"name": "Extra limbs",
+		"cost": 25,
+		"effect": "This character may wield 4 Single handed weapons or 2 Double handed weapons at once."
+	},
+	{
+		"id": "engineer",
+		"name": "Engineer",
+		"cost": 12,
+		"effect": "When embarked in a vehicle this character automatically restores 1D4 hit-points per turn to any damaged sections in the same facing as the one from which they embarked."
+	},
+	{
+		"id": "fast",
+		"name": "Fast",
+		"cost": 6,
+		"effect": "At the start of each turn, roll 1D6. Add this to this character's speed for that turn."
+	},
+	{
+		"id": "fearless",
+		"name": "Fearless",
+		"cost": 12,
+		"effect": "This character is immune to the effects of the Fearsome and Terrifying traits."
+	},
+	{
+		"id": "fearsome",
+		"name": "Fearsome",
+		"cost": 12,
+		"effect": "Enemies wishing to charge this character must first pass a break test."
+	},
+	{
+		"id": "foul-aura",
+		"name": "Foul aura",
+		"cost": 15,
+		"effect": "Enemy characters receive 1 damage for every turn they spend in base contact with this character."
+	},
+	{
+		"id": "gigantic",
+		"name": "Gigantic",
+		"cost": 18,
+		"effect": "This character gains all the effects of Big plus the following; This character is not counted as being in cover unless completely obscured from sight. This character cannot be pushed back after combat. This character only takes fall damage from heights of 20cm or more."
+	},
+	{
+		"id": "gunner",
+		"name": "Gunner",
+		"cost": 10,
+		"effect": "When embarked in a vehicle this character may act as crew for the purpose of shooting. Any weapons shot by this character use the character's shooting skill rather than the vehicle's. This character can only fire weapons on the same facing as the one from which they embarked."
+	},
+	{
+		"id": "gunslinger",
+		"name": "Gunslinger",
+		"cost": 20,
+		"effect": "This character may make shoot actions when locked in combat."
+	},
+	{
+		"id": "intelligent",
+		"name": "Intelligent",
+		"cost": 10,
+		"effect": "This character may reroll one failed (AW) roll per turn."
+	},
+	{
+		"id": "incorporeal",
+		"name": "Incorporeal",
+		"cost": 15,
+		"effect": "This character may move through obstacles and other characters as if they were moving over even ground."
+	},
+	{
+		"id": "inspiring",
+		"name": "Inspiring",
+		"cost": 25,
+		"effect": "Friendly characters within 10cm of this character receive +1 to their skills."
+	},
+	{
+		"id": "iron-skin",
+		"name": "Iron skin",
+		"cost": 8,
+		"effect": "This character may make an additional 1D4 armour roll whenever they take damage."
+	},
+	{
+		"id": "major-arcana",
+		"name": "Major arcana",
+		"cost": 30,
+		"effect": "This character may perform arcana abilities from the arcana table. They may roll 3 random abilities at the start of each game, and may perform them as many times as they like during a game."
+	},
+	{
+		"id": "medic",
+		"name": "Medic",
+		"cost": 15,
+		"effect": "This character may heal one injury from any friendly character in-between games. If they do, they may not do anything else between games."
+	},
+	{
+		"id": "mercenary",
+		"name": "Mercenary",
+		"cost": -5,
+		"effect": "This character must be paid 10 credits before the start of each game. If they are not, they may not join your warband for that game. This character may convert their campaign points for credits at a ratio of 1 to 1."
+	},
+	{
+		"id": "minor-arcana",
+		"name": "Minor arcana",
+		"cost": 18,
+		"effect": "This character may perform arcane abilities from the arcana table. They may roll 1 random ability at the start of each game, and may perform them as many times as they like during a game."
+	},
+	{
+		"id": "mysterious-motives",
+		"name": "Mysterious motives",
+		"cost": 6,
+		"effect": "At the start of each turn, roll 1D10. Treat this as the character's (A) for the purpose of activation."
+	},
+	{
+		"id": "painless",
+		"name": "Painless",
+		"cost": 25,
+		"effect": "When rolling on the injuries table, this character treats all injuries except Death as Complete recovery."
+	},
+	{
+		"id": "pilot",
+		"name": "Pilot",
+		"cost": 15,
+		"effect": "When embarked in a vehicle that vehicle may use this character's agility and shooting values as its own."
+	},
+	{
+		"id": "psychic",
+		"name": "Psychic",
+		"cost": 18,
+		"effect": "This character may reroll a failed arcana ability once per turn."
+	},
+	{
+		"id": "rich",
+		"name": "Rich",
+		"cost": 28,
+		"effect": "This character gains an additional 1D8 credits after each game."
+	},
+	{
+		"id": "rageful",
+		"name": "Rageful",
+		"cost": -10,
+		"effect": "This character may never leave combat. They will fight until they die or their opponent leaves/dies."
+	},
+	{
+		"id": "slow",
+		"name": "Slow",
+		"cost": -6,
+		"effect": "At the start of each turn, roll 1D6. Remove this from this character's speed for that turn."
+	},
+	{
+		"id": "sniper",
+		"name": "Sniper",
+		"cost": 17,
+		"effect": "This character may reroll any failed Shooting rolls once."
+	},
+	{
+		"id": "sure-footed",
+		"name": "Sure-footed",
+		"cost": 10,
+		"effect": "This character treats rough ground as even ground and hazardous ground as rough ground."
+	},
+	{
+		"id": "stupid",
+		"name": "Stupid",
+		"cost": -10,
+		"effect": "This character must roll all (P) rolls twice, taking the worse result."
+	},
+	{
+		"id": "tank-hunter",
+		"name": "Tank hunter",
+		"cost": 15,
+		"effect": "This character receives a +1 to their Shooting skill when making shoot actions against a vehicle."
+	},
+	{
+		"id": "terrifying",
+		"name": "Terrifying",
+		"cost": 30,
+		"effect": "Enemies must pass a break test to charge, attack or shoot at this character. During off-table games any non-player characters will be hostile to this character, running away and refusing to engage with them."
+	},
+	{
+		"id": "unshakable",
+		"name": "Unshakable",
+		"cost": 25,
+		"effect": "This character never needs to take a break test."
+	},
+	{
+		"id": "unbreakable-conviction",
+		"name": "Unbreakable conviction",
+		"cost": 20,
+		"effect": "This character is immune to the Persuade ability and the Mind control arcane power. All friendly characters within 10cm of them are also immune."
+	},
+	{
+		"id": "unearthly",
+		"name": "Unearthly",
+		"cost": 40,
+		"effect": "This character can only be damaged by weapons with the keyword Psychic, Arcane or Demonic."
+	},
+	{
+		"id": "venal",
+		"name": "Venal",
+		"cost": -12,
+		"effect": "This character must always convert spare campaign points into credits and may not save campaign points from one game to another."
+	},
+	{
+		"id": "zealot",
+		"name": "Zealot",
+		"cost": 15,
+		"effect": "Whenever this character takes damage, roll 1D10. On a roll of 10 this character gains +1 to their (F) and (A) skills for the remainder of the game, up to a maximum of 10."
+	}
+]
