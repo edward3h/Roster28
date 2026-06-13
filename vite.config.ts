@@ -15,7 +15,14 @@ export default defineConfig({
 			// Static site, no server - suitable for GitHub Pages.
 			// All routes are prerendered (see src/routes/+layout.ts), so no fallback is needed.
 			// See https://svelte.dev/docs/kit/adapter-static for more information.
-			adapter: adapter()
+			adapter: adapter(),
+
+			// GitHub Pages serves project sites from /<repo-name>/, so the base
+			// path is set via BASE_PATH when building for deployment (see
+			// .github/workflows/deploy.yml). Locally this is empty.
+			paths: {
+				base: process.env.BASE_PATH ?? ''
+			}
 		})
 	],
 	test: {
