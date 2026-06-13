@@ -1,5 +1,8 @@
 node_modules
 
+# Rulebook reference PDF - copyrighted material, not for distribution
+/reference/*.pdf
+
 # Output
 .output
 .vercel
