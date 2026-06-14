@@ -11,6 +11,8 @@
 {@render children()}
 
 <footer>
+	<a href="https://www.drivethrurpg.com/en/product/409696/planet-28-second-edition" target="_blank" rel="noopener noreferrer">Buy the rulebook</a>
+	|
 	<a href="https://github.com/edward3h/Roster28/issues" target="_blank" rel="noopener noreferrer">Report a bug</a>
 </footer>
 
