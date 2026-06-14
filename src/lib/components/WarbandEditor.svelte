@@ -111,7 +111,10 @@
 			>
 				<summary>
 					<div class="summary-header">
-						{entry.data.name} ({entry.type === 'squad' ? `squad, ` : ''}{entryCost(entry)} pts)
+						<span class="title">
+							<span class="marker"></span>
+							{entry.data.name} ({entry.type === 'squad' ? `squad, ` : ''}{entryCost(entry)} pts)
+						</span>
 						<button
 							type="button"
 							class="remove"
@@ -214,17 +217,43 @@
 
 	.entry summary {
 		cursor: pointer;
+		list-style: none;
+	}
+
+	.entry summary::-webkit-details-marker {
+		display: none;
 	}
 
 	.entry summary .summary-header {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
+		gap: 0.5rem;
 		font-weight: 600;
+	}
+
+	.entry summary .title {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.entry summary .marker {
+		display: inline-block;
+		font-size: 0.8em;
+		transition: transform 0.1s ease-in-out;
+	}
+
+	.entry summary .marker::before {
+		content: '▶';
+	}
+
+	.entry[open] summary .marker {
+		transform: rotate(90deg);
 	}
 
 	.entry summary .remove {
 		font-weight: normal;
+		margin-left: auto;
 	}
 
 	.empty {
