@@ -1,11 +1,7 @@
 <script lang="ts">
-	import abilitiesData from '$lib/data/abilities.json';
-	import armourData from '$lib/data/armour.json';
-	import miscItemsData from '$lib/data/miscItems.json';
-	import traitsData from '$lib/data/traits.json';
-	import weaponsData from '$lib/data/weapons.json';
 	import { equipmentItemCost } from '$lib/model/points';
-	import type { CharacterProfile, EquipmentItem } from '$lib/model/types';
+	import { abilityNames, equipmentLabel, traitNames } from '$lib/model/labels';
+	import type { CharacterProfile } from '$lib/model/types';
 
 	let {
 		name,
@@ -13,25 +9,6 @@
 		cost,
 		subtitle = ''
 	}: { name: string; profile: CharacterProfile; cost: number; subtitle?: string } = $props();
-
-	const traitNames = new Map(traitsData.map((t) => [t.id, t.name]));
-	const abilityNames = new Map(abilitiesData.map((a) => [a.id, a.name]));
-	const weaponNames = new Map(weaponsData.map((w) => [w.id, w.name]));
-	const armourNames = new Map(armourData.map((a) => [a.id, a.name]));
-	const itemNames = new Map(miscItemsData.map((i) => [i.id, i.name]));
-
-	function equipmentLabel(item: EquipmentItem): string {
-		switch (item.kind) {
-			case 'weapon':
-				return weaponNames.get(item.ref) ?? item.ref;
-			case 'armour':
-				return armourNames.get(item.ref) ?? item.ref;
-			case 'item':
-				return itemNames.get(item.ref) ?? item.ref;
-			case 'customWeapon':
-				return `${item.name} (custom, ${item.damage}${item.range ? `, ${item.range}cm` : ''})`;
-		}
-	}
 </script>
 
 <div class="sheet">
