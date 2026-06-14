@@ -13,7 +13,10 @@
 	import CostedListPicker from './CostedListPicker.svelte';
 	import EquipmentPicker from './EquipmentPicker.svelte';
 
-	let { profile = $bindable() }: { profile: CharacterProfile } = $props();
+	let {
+		profile = $bindable(),
+		categories = ['weapon', 'armour', 'item']
+	}: { profile: CharacterProfile; categories?: ('weapon' | 'armour' | 'item')[] } = $props();
 
 	const cost = $derived(characterCost(profile));
 
@@ -108,7 +111,7 @@
 
 	<section>
 		<h4>Equipment</h4>
-		<EquipmentPicker bind:equipment={profile.equipment} />
+		<EquipmentPicker bind:equipment={profile.equipment} {categories} />
 	</section>
 </div>
 

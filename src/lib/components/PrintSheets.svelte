@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { characterCost, squadCost } from '$lib/model/points';
+	import { characterCost, equipmentCost } from '$lib/model/points';
 	import type { Warband } from '$lib/model/types';
 	import CharacterSheet from './CharacterSheet.svelte';
 
@@ -15,12 +15,17 @@
 				cost={characterCost(entry.data)}
 			/>
 		{:else}
-			<CharacterSheet
-				name={entry.data.name}
-				profile={entry.data.profile}
-				cost={squadCost(entry.data)}
-				subtitle={`Squad of ${entry.data.memberCount}, ${characterCost(entry.data.profile)}pts each`}
-			/>
+			{#each entry.data.loadouts as loadout (loadout.id)}
+				<CharacterSheet
+					name={entry.data.name}
+					profile={{
+						...entry.data.profile,
+						equipment: [...entry.data.profile.equipment, ...loadout.weapons]
+					}}
+					cost={characterCost(entry.data.profile) + equipmentCost(loadout.weapons)}
+					subtitle={`Squad of ${entry.data.memberCount} — ${loadout.memberCount} member${loadout.memberCount === 1 ? '' : 's'}`}
+				/>
+			{/each}
 		{/if}
 	{/each}
 </div>
