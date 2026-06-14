@@ -5,6 +5,7 @@
 	import { generateId } from '$lib/model/id';
 	import type { Warband, WarbandEntry } from '$lib/model/types';
 	import CharacterEditor from './CharacterEditor.svelte';
+	import EntrySummary from './EntrySummary.svelte';
 	import PrintSheets from './PrintSheets.svelte';
 	import SquadEditor from './SquadEditor.svelte';
 
@@ -12,6 +13,9 @@
 
 	const total = $derived(warbandTotal(warband));
 	const overBudget = $derived(total > warband.pointsBudget);
+
+	/** ids of entries whose full editor is expanded; entries not in this set are collapsed to a summary. */
+	let openIds = $state(new Set<string>());
 
 	let fileInput: HTMLInputElement;
 	let importError = $state('');
@@ -21,14 +25,15 @@
 	}
 
 	function addCharacter() {
-		warband.entries = [
-			...warband.entries,
-			{ type: 'character', data: { ...createCharacterProfile('New character'), id: generateId() } }
-		];
+		const data = { ...createCharacterProfile('New character'), id: generateId() };
+		warband.entries = [...warband.entries, { type: 'character', data }];
+		openIds.add(data.id);
 	}
 
 	function addSquad() {
-		warband.entries = [...warband.entries, { type: 'squad', data: createSquad('New squad') }];
+		const data = createSquad('New squad');
+		warband.entries = [...warband.entries, { type: 'squad', data }];
+		openIds.add(data.id);
 	}
 
 	function removeEntry(index: number) {
@@ -96,17 +101,27 @@
 
 	<div class="entries">
 		{#each warband.entries as entry, index (entry.data.id)}
-			<details class="entry" open>
+			<details
+				class="entry"
+				open={openIds.has(entry.data.id)}
+				ontoggle={(e) => {
+					if (e.currentTarget.open) openIds.add(entry.data.id);
+					else openIds.delete(entry.data.id);
+				}}
+			>
 				<summary>
-					{entry.data.name} ({entry.type === 'squad' ? `squad, ` : ''}{entryCost(entry)} pts)
-					<button
-						type="button"
-						class="remove"
-						onclick={(e) => {
-							e.preventDefault();
-							removeEntry(index);
-						}}>Remove</button
-					>
+					<div class="summary-header">
+						{entry.data.name} ({entry.type === 'squad' ? `squad, ` : ''}{entryCost(entry)} pts)
+						<button
+							type="button"
+							class="remove"
+							onclick={(e) => {
+								e.preventDefault();
+								removeEntry(index);
+							}}>Remove</button
+						>
+					</div>
+					<EntrySummary {entry} />
 				</summary>
 				{#if entry.type === 'character'}
 					<CharacterEditor bind:profile={entry.data} />
@@ -198,10 +213,13 @@
 	}
 
 	.entry summary {
+		cursor: pointer;
+	}
+
+	.entry summary .summary-header {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		cursor: pointer;
 		font-weight: 600;
 	}
 
