@@ -15,8 +15,13 @@
 
 	let {
 		profile = $bindable(),
-		categories = ['weapon', 'armour', 'item']
-	}: { profile: CharacterProfile; categories?: ('weapon' | 'armour' | 'item')[] } = $props();
+		categories = ['weapon', 'armour', 'item'],
+		showName = true
+	}: {
+		profile: CharacterProfile;
+		categories?: ('weapon' | 'armour' | 'item')[];
+		showName?: boolean;
+	} = $props();
 
 	const cost = $derived(characterCost(profile));
 
@@ -47,10 +52,12 @@
 
 <div class="character-editor">
 	<div class="header">
-		<label class="name-field">
-			Name
-			<input type="text" bind:value={profile.name} />
-		</label>
+		{#if showName}
+			<label class="name-field">
+				Name
+				<input type="text" bind:value={profile.name} />
+			</label>
+		{/if}
 		<div class="cost-summary">Cost: <strong>{cost}</strong> pts</div>
 	</div>
 

@@ -93,7 +93,7 @@
 		All squad members share the profile below (skills, traits, abilities, armour and items).
 	</p>
 
-	<CharacterEditor bind:profile={squad.profile} categories={['armour', 'item']} />
+	<CharacterEditor bind:profile={squad.profile} categories={['armour', 'item']} showName={false} />
 
 	<section class="loadouts">
 		<h4>Weapon loadouts</h4>
