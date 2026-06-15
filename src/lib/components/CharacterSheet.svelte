@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { equipmentItemCost } from '$lib/model/points';
-	import { abilityNames, equipmentLabel, traitNames } from '$lib/model/labels';
+	import { abilityNames, equipmentDetails, equipmentLabel, traitNames } from '$lib/model/labels';
 	import type { CharacterProfile } from '$lib/model/types';
 
 	let {
@@ -75,7 +75,13 @@
 			<strong>Equipment:</strong>
 			<ul>
 				{#each profile.equipment as item (item.id)}
-					<li>{equipmentLabel(item)} ({equipmentItemCost(item)})</li>
+					{@const details = equipmentDetails(item)}
+					<li>
+						{equipmentLabel(item)} ({equipmentItemCost(item)})
+						{#if details}
+							<div class="equip-details">{details}</div>
+						{/if}
+					</li>
 				{/each}
 			</ul>
 		</div>
@@ -134,6 +140,12 @@
 	.box ul {
 		margin: 0.25rem 0 0 1rem;
 		padding: 0;
+	}
+
+	.equip-details {
+		font-size: 0.8em;
+		color: #555;
+		margin-left: 0.5rem;
 	}
 
 	.bottom-row {
